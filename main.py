@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 
 #inicialização
 app = Flask(__name__)
@@ -6,7 +6,13 @@ app = Flask(__name__)
 #rotas
 @app.route('/')
 def ola_mundo():
-    return f"<a href='{url_for('pagina_sobre')}'>Página sobre</a>"
+    titulo = "Gestão de Usuários"
+    usuarios = [
+        {"nome": "Fábio", "Cargo": True},
+        {"nome": "Jordana", "Cargo": False},
+    ]
+    return render_template("index.html", titulo=titulo, usuarios=usuarios)
+
 
 @app.route('/sobre')
 def pagina_sobre():
