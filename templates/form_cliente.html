@@ -1,4 +1,4 @@
-<form class="c-form" 
+<form id="form" class="c-form" 
     {% if cliente %} 
       action="{{ url_for('cliente.atualizar_cliente', cliente_id=cliente.id)}}" 
     {% else %}
